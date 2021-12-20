@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
 import styles from "./SearchBar.module.css";
+import { useSelector } from "react-redux";
 
 export default function SearchBar() {
-  const [search, setSearch] = useState("");
+  const searchState = useSelector((store) => store.search);
+  const [search, setSearch] = useState(searchState);
   const router = useRouter();
   const handleSubmit = (e) => {
     e.preventDefault();

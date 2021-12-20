@@ -4,8 +4,11 @@ import { useRouter } from "next/router";
 import Layout from "../components/Layout/Layout";
 import Card from "../components/Card/Card";
 import CustomLoader from "../components/CustomLoader/CustomLoader";
+import { useDispatch } from "react-redux";
+import { setSearch } from "../store/actions/search";
 
 export default function Search() {
+  const dispatch = useDispatch();
   const router = useRouter();
   const query = router.query;
   const [movies, setMovies] = useState([]);
@@ -16,6 +19,7 @@ export default function Search() {
       `https://api.themoviedb.org/3/search/movie?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}&query=${query.q}`
     );
   };
+
   useEffect(async () => {
     setLoading(true);
     try {

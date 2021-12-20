@@ -1,10 +1,13 @@
 import { useState } from "react";
 import styles from "../styles/Home.module.css";
 import { useRouter } from "next/router";
+import { useDispatch } from "react-redux";
+import { setSearch as actionSetSearch } from "../store/actions/search";
 
 export default function Home() {
   const [search, setSearch] = useState("");
   const router = useRouter();
+  const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -12,6 +15,7 @@ export default function Home() {
     if (search.trim().length < 1) {
       return null;
     }
+    dispatch(actionSetSearch(search));
     router.push(`/search?q=${search}`);
   };
   return (

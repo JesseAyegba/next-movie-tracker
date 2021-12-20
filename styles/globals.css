@@ -1,16 +1,18 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
+@import url("https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;500;600;700&display=swap");
 
 * {
+  padding: 0;
+  margin: 0;
   box-sizing: border-box;
+  font-family: "Baloo Bhaijaan 2", cursive;
+}
+a {
+  text-decoration: none;
+}
+:root {
+  --light-pink: #82013d;
+  --dark-pink: #41001f;
+  --white-text: white;
+  --dark-bg: #0c0d0f;
+  --navbar-bg: #131416;
 }

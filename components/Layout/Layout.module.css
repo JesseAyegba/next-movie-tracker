@@ -1,0 +1,7 @@
+.container {
+  background-color: var(--dark-bg);
+  min-height: 100vh;
+}
+.main {
+  padding: 20px 10px;
+}

@@ -18,19 +18,22 @@ export default function MovieDetail() {
     );
   };
 
-  useEffect(async () => {
-    setLoading(true);
-    try {
-      const res = await getMovie();
-      const data = await res.json();
-      setMovie(data);
-      setGenres(data.genres);
-      console.log(data.genres);
-    } catch {
-      console.log("Could not get  movie");
-    } finally {
-      setLoading(false);
-    }
+  useEffect(() => {
+    const fetchMovie = async () => {
+      setLoading(true);
+      try {
+        const res = await getMovie();
+        const data = await res.json();
+        setMovie(data);
+        setGenres(data.genres);
+        console.log(data.genres);
+      } catch {
+        console.log("Could not get  movie");
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchMovie();
   }, [router]);
   return (
     <Layout>

@@ -20,17 +20,20 @@ export default function Search() {
     );
   };
 
-  useEffect(async () => {
-    setLoading(true);
-    try {
-      const res = await getMovies();
-      const data = await res.json();
-      setMovies(data.results);
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setLoading(false);
-    }
+  useEffect(() => {
+    const fetchMovies = async () => {
+      setLoading(true);
+      try {
+        const res = await getMovies();
+        const data = await res.json();
+        setMovies(data.results);
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchMovies();
   }, [router]);
   return (
     <Layout>

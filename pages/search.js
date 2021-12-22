@@ -9,7 +9,7 @@ export default function Search() {
   const router = useRouter();
   const query = router.query;
   const [movies, setMovies] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const getMovies = () => {
     return fetch(
@@ -19,7 +19,6 @@ export default function Search() {
 
   useEffect(() => {
     const fetchMovies = async () => {
-      setLoading(true);
       try {
         const res = await getMovies();
         const data = await res.json();
@@ -38,7 +37,7 @@ export default function Search() {
         <CustomLoader />
       ) : (
         <div className={styles.container}>
-          {/* {movies.map((item) => (
+          {movies.map((item) => (
             <Card
               key={item.id}
               title={item.title}
@@ -46,7 +45,7 @@ export default function Search() {
               imageUrl={`https://image.tmdb.org/t/p/original/${item.poster_path}`}
               movieId={item.id}
             />
-          ))} */}
+          ))}
         </div>
       )}
     </Layout>

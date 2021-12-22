@@ -3,6 +3,7 @@ import styles from "../styles/Home.module.css";
 import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 import { setSearch as actionSetSearch } from "../store/actions/search";
+import Head from "next/head";
 
 export default function Home() {
   const [search, setSearch] = useState("");
@@ -20,6 +21,9 @@ export default function Home() {
   };
   return (
     <div className={styles.container}>
+      <Head>
+        <title>Movie tracker | Home</title>
+      </Head>
       <div className={styles.wrapper}>
         <div className={styles.text}>
           <h1 className={styles.header}>Moovies</h1>

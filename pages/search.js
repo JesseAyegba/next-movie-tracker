@@ -4,11 +4,8 @@ import { useRouter } from "next/router";
 import Layout from "../components/Layout/Layout";
 import Card from "../components/Card/Card";
 import CustomLoader from "../components/CustomLoader/CustomLoader";
-import { useDispatch } from "react-redux";
-import { setSearch } from "../store/actions/search";
 
 export default function Search() {
-  const dispatch = useDispatch();
   const router = useRouter();
   const query = router.query;
   const [movies, setMovies] = useState([]);
@@ -41,19 +38,15 @@ export default function Search() {
         <CustomLoader />
       ) : (
         <div className={styles.container}>
-          {movies[0]?.title !== "UNdefined"
-            ? movies.map((item) =>
-                item.poster_path ? (
-                  <Card
-                    key={item.id}
-                    title={item.title}
-                    rating={item.vote_average}
-                    imageUrl={`https://image.tmdb.org/t/p/original/${item.poster_path}`}
-                    movieId={item.id}
-                  />
-                ) : null
-              )
-            : null}
+          {/* {movies.map((item) => (
+            <Card
+              key={item.id}
+              title={item.title}
+              rating={item.vote_average}
+              imageUrl={`https://image.tmdb.org/t/p/original/${item.poster_path}`}
+              movieId={item.id}
+            />
+          ))} */}
         </div>
       )}
     </Layout>

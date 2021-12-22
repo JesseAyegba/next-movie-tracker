@@ -16,7 +16,7 @@ export default function Home() {
       return null;
     }
     dispatch(actionSetSearch(search));
-    router.push(`/search?q=${search}`);
+    router.push(`/search/${search}`);
   };
   return (
     <div className={styles.container}>

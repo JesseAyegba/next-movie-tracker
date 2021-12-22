@@ -37,15 +37,19 @@ export default function Search() {
         <CustomLoader />
       ) : (
         <div className={styles.container}>
-          {movies.map((item) => (
-            <Card
-              key={item.id}
-              title={item.title}
-              rating={item.vote_average}
-              imageUrl={`https://image.tmdb.org/t/p/original/${item.poster_path}`}
-              movieId={item.id}
-            />
-          ))}
+          {movies[0]?.title !== "UNdefined"
+            ? movies.map((item) =>
+                item.poster_path ? (
+                  <Card
+                    key={item.id}
+                    title={item.title}
+                    rating={item.vote_average}
+                    imageUrl={`https://image.tmdb.org/t/p/original/${item.poster_path}`}
+                    movieId={item.id}
+                  />
+                ) : null
+              )
+            : null}
         </div>
       )}
     </Layout>
